@@ -28,19 +28,43 @@ $this->title = 'My Yii Application';
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
-            <h3>Redesign website</h3>
+            <h3 id="sname">Redesign website</h3>
             <div class="input-group mb-3">
                 <label>Start Date</label>
-                <input type="date" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="start_date">
+                <input type="date" class="form-control" id="start_date">
             </div>
             <div class="input-group mb-3">
                 <label>Duration (days)</label>
-                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="duration">
+                <input type="text" class="form-control" id="duration">
+            </div>
+            <div class="input-group mb-3">
+                <input type="button" class="form-control" onclick="updateChart();" value="Update">
             </div>
         </div>
     </div>
 </div>
 <script>
+    var sel_index = -1;
+
+    function updateChart() {
+        var duration = document.getElementById("duration").value;
+        var start_date = new Date(document.getElementById("start_date").value);
+        var end_date = new Date(start_date);
+        end_date.setDate(end_date.getDate() + duration * 1 - 1);
+        tasks[sel_index].start = start_date;
+        tasks[sel_index].end = end_date;
+
+        gantt_chart = Gantt("#gantt", tasks, {
+            on_click: function (task) {
+                document.getElementById("start_date").value = convertDate(task.start);
+                document.getElementById("duration").value = getDuration(task.start, task.end);
+                document.getElementById("sname").innerHTML = task.name;
+                sel_index = task._index;
+                console.log(task);
+            }
+        });
+    }
+
     var names = [
         ["Redesign website", [0, 7]],
         ["Write new content", [1, 4]],
@@ -75,16 +99,9 @@ $this->title = 'My Yii Application';
         on_click: function (task) {
             document.getElementById("start_date").value = convertDate(task.start);
             document.getElementById("duration").value = getDuration(task.start, task.end);
+            document.getElementById("sname").innerHTML = task.name;
+            sel_index = task._index;
             console.log(task);
-        },
-        on_date_change: function(task, start, end) {
-            console.log(task, start, end);
-        },
-        on_progress_change: function(task, progress) {
-            console.log(task, progress);
-        },
-        on_view_change: function(mode) {
-            console.log(mode);
         }
     });
 
