@@ -1,0 +1,79 @@
+{
+  "_from": "frappe-gantt",
+  "_id": "frappe-gantt@0.0.7",
+  "_inBundle": false,
+  "_integrity": "sha1-etv2uoMH5iU13e8jrr6wLBKOVDo=",
+  "_location": "/frappe-gantt",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "frappe-gantt",
+    "name": "frappe-gantt",
+    "escapedName": "frappe-gantt",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/frappe-gantt/-/frappe-gantt-0.0.7.tgz",
+  "_shasum": "7adbf6ba8307e62535ddef23aebeb02c128e543a",
+  "_spec": "frappe-gantt",
+  "_where": "/Volumes/WORK/projects/tutorial/yii2",
+  "author": {
+    "name": "Faris Ansari"
+  },
+  "bugs": {
+    "url": "https://github.com/frappe/gantt/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "moment": "^2.17.1",
+    "snapsvg": "^0.4.0"
+  },
+  "deprecated": false,
+  "description": "A simple, modern, interactive gantt library for the web",
+  "devDependencies": {
+    "babel": "6.3.13",
+    "babel-core": "6.1.18",
+    "babel-eslint": "5.0.0",
+    "babel-loader": "6.1.0",
+    "babel-plugin-add-module-exports": "0.1.2",
+    "babel-preset-es2015": "6.3.13",
+    "chai": "3.4.1",
+    "css-loader": "^0.26.1",
+    "eslint": "1.7.2",
+    "eslint-loader": "1.1.0",
+    "mocha": "2.3.4",
+    "node-sass": "^4.0.0",
+    "sass-loader": "^4.1.0",
+    "style-loader": "^0.13.1",
+    "webpack": "1.12.9",
+    "yargs": "3.32.0"
+  },
+  "homepage": "https://github.com/frappe/gantt",
+  "keywords": [
+    "gantt",
+    "svg",
+    "simple gantt",
+    "project timeline",
+    "interactive gantt",
+    "project management"
+  ],
+  "license": "MIT",
+  "main": "dist/frappe-gantt.js",
+  "name": "frappe-gantt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frappe/gantt.git"
+  },
+  "scripts": {
+    "build": "webpack --mode=build",
+    "dev": "webpack --progress --colors --watch --mode=dev",
+    "test": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
+  },
+  "version": "0.0.7"
+}
